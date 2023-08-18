@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+<section>
+  <form method="post" action="#" role="form">
+    <h1>Congratulations {{ user.username }}</h1>
+      <p>You have created a new page. Now you can log in</p>
+        <div class="text-center">
+        <a href="{% url 'login'  %}">Login</a>
+        </div>
+  </form>
+</section>
+
+{% endblock content %}

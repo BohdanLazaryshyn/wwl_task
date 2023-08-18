@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Order List
+  </h1>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form }}
+    <input class="btn btn-secondary" type="Submit" value="Search">
+  </form>
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+  {% if orders %}
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for order in orders %}
+        <tr>
+          <td>
+              {{ order.name }}
+          </td>
+          <td>
+            <a class="btn btn-secondary"
+              href="{% url 'producer:order-delete' pk=order.id %}">
+              Delete
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no orders in list</p>
+  {% endif %}
+{% endblock %}

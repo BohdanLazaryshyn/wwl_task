@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+<section>
+    <div>
+      <h4>Sign Up</h4>
+      <p>Enter your valid credentials to register</p>
+    </div>
+    <div>
+      <form method="post" action="#" role="form">
+        {% csrf_token %}
+        {{ user_form|crispy}}
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+</section>
+
+{% endblock content %}
