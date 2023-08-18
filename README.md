@@ -23,7 +23,7 @@ Its simple task for Producer - Consumer problem.
 * python manage.py runserver
 
 ### You should have create .env file:
-***
+```
 SECRET_KEY=your_secret_key
 BOT_TOKEN=your_token
 CHAT_ID=your_chat_id
@@ -31,7 +31,7 @@ POSTGRES_USER=your_user
 POSTGRES_PASSWORD=your_password
 POSTGRES_DB=your_db
 POSTGRES_HOST=your_host
-***
+```
 
 ### How to run with docker
 *docker-compose up --build*
