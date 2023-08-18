@@ -1,6 +1,11 @@
 ## WWL task
 Its simple task for Producer - Consumer problem.
 
+### Features
+* Register, login, logout
+* Send message to telegram bot after deleting order
+* Schedule task for creating order
+
 ### Used technologies
 * Python 3.11
 * Django
