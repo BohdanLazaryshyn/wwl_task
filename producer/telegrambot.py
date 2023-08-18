@@ -1,8 +1,9 @@
 import requests
 
+from wwl_task.settings import BOT_TOKEN, CHAT_ID
 
-bot_token = "6077204161:AAGKxrXF7mMt7mYkljwVX_9R0c0-RkzSDRw"
-chat_id = "422467834"
+bot_token = BOT_TOKEN
+chat_id = CHAT_ID
 
 
 def send_message(message):

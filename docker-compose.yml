@@ -13,62 +13,48 @@ services:
     ports:
       - "8000:8000"
     restart: always
-    environment:
-        - POSTGRES_HOST=db
-        - POSTGRES_DB=wwl_db
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=lazaryshyn
+    env_file:
+      - ./.env
     depends_on:
       - db
 
   db:
     image: postgres:15-alpine
     restart: always
-    environment:
-      - POSTGRES_DB=wwl_db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=lazaryshyn
+    env_file:
+      - ./.env
     ports:
       - "5432:5432"
 
+  redis:
+    image: "redis:alpine"
 
   celery:
-    restart: always
     build:
-        context: .
-    command: celery -A wwl_task.celery worker --loglevel=info
+      context: .
+      dockerfile: Dockerfile
+    command: "celery -A wwl_task worker -l info"
     volumes:
-      - .:/app
-    container_name: celery
+      - ./:/app
     depends_on:
-      - redis
       - app
+      - redis
+    restart: on-failure
+    env_file:
+      - .env
 
-  redis:
-    image: redis:alpine
-    container_name: redis
-    ports:
-      - "6379:6379"
-    environment:
-      ALLOW_EMPTY_PASSWORD: 'yes'
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py wait_for_db &&
+             celery -A wwl_task beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler"
     volumes:
-      - ./redis.conf:/usr/local/etc/redis.conf
-
-#
-#  celery_worker:
-#    container_name: celery_worker
-#    build: .
-#    command: celery -A wwl_task.celery worker --loglevel=info
-#    volumes:
-#      - .:/app
-#    depends_on:
-#      - app
-#      - redis
-#
-#  celery_beat:
-#    container_name: celery_beat
-#    build: .
-#    command: celery -A wwl_task.celery beat --loglevel=info
-#    depends_on:
-#      - app
-#      - redis
+      - ./:/app
+    depends_on:
+      - celery
+      - redis
+    restart: on-failure
+    env_file:
+      - .env

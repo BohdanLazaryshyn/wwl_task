@@ -43,7 +43,7 @@ class OrderDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         message = f"Задача №{self.object.pk}-{self.object.task_id} під назвою {self.object.name} "\
             f"була опрацьована {self.object.employee.first_name} - {self.object.employee.position} "\
-            f"у {datetime.datetime.now()}"
+            f"у {datetime.datetime.now().strftime('%Y.%m.%d - %H:%M:%S')}"
         send_message(message)
         messages.success(self.request, message)
         return super().get_success_url()
