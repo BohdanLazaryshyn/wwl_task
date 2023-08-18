@@ -38,3 +38,6 @@ POSTGRES_HOST=your_host
 
 ### Hosts
 * http://127.0.0.1:8000
+
+### You can use this command for load data to db (after migrate)
+* python manage.py loaddata data.json
