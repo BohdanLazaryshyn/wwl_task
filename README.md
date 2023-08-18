@@ -23,7 +23,6 @@ Its simple task for Producer - Consumer problem.
 * source venv/bin/activate (on macOS)
 * pip install -r requirements.txt
 * create .env file (see below)
-* python manage.py makemigrations
 * python manage.py migrate
 * python manage.py runserver
 
