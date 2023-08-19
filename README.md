@@ -23,7 +23,6 @@ Its simple task for Producer - Consumer problem.
 * source venv/bin/activate (on macOS)
 * pip install -r requirements.txt
 * create .env file (see below)
-* python manage.py makemigrations
 * python manage.py migrate
 * python manage.py runserver
 
@@ -39,7 +38,9 @@ POSTGRES_HOST=your_host
 ```
 
 ### How to run with docker
-*docker-compose up --build*
+* docker-compose up --build
+* (for create superuser) docker-compose exec app python manage.py createsuperuser
+* (after first run) docker-compose up
 
 ### Hosts
 * http://127.0.0.1:8000

@@ -1,0 +1,131 @@
+[
+    {
+        "model": "producer.employee",
+        "pk": 1,
+        "fields": {
+            "username": "user1",
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "user1@example.com",
+            "password": "pbkdf2_sha256$216000$E18n4usYnN6y$MAHLtAhNTdRE0DgHwDj6z4uDeDo3xIECHfH2fuBkDTc=",
+            "probation": false,
+            "position": "Position 1"
+        }
+    },
+    {
+        "model": "producer.employee",
+        "pk": 2,
+        "fields": {
+            "username": "user2",
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "email": "user2@example.com",
+            "password": "pbkdf2_sha256$216000$E18n4usYnN6y$MAHLtAhNTdRE0DgHwDj6z4uDeDo3xIECHfH2fuBkDTc=",
+            "probation": true,
+            "position": "Position 2"
+        }
+    },
+    {
+        "model": "producer.employee",
+        "pk": 3,
+        "fields": {
+            "username": "user3",
+            "first_name": "Michael",
+            "last_name": "Johnson",
+            "email": "user3@example.com",
+            "password": "pbkdf2_sha256$216000$E18n4usYnN6y$MAHLtAhNTdRE0DgHwDj6z4uDeDo3xIECHfH2fuBkDTc=",
+            "probation": false,
+            "position": "Position 3"
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 1,
+        "fields": {
+            "task_id": 1,
+            "name": "Order 1",
+            "description": "Description for Order 1",
+            "employee": 1
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 2,
+        "fields": {
+            "task_id": 2,
+            "name": "Order 2",
+            "description": "Description for Order 2",
+            "employee": 1
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 3,
+        "fields": {
+            "task_id": 3,
+            "name": "Order 3",
+            "description": "Description for Order 3",
+            "employee": 1
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 4,
+        "fields": {
+            "task_id": 4,
+            "name": "Order 4",
+            "description": "Description for Order 4",
+            "employee": 2
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 5,
+        "fields": {
+            "task_id": 5,
+            "name": "Order 5",
+            "description": "Description for Order 5",
+            "employee": 2
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 6,
+        "fields": {
+            "task_id": 6,
+            "name": "Order 6",
+            "description": "Description for Order 6",
+            "employee": 2
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 7,
+        "fields": {
+            "task_id": 7,
+            "name": "Order 7",
+            "description": "Description for Order 7",
+            "employee": 3
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 8,
+        "fields": {
+            "task_id": 8,
+            "name": "Order 8",
+            "description": "Description for Order 8",
+            "employee": 3
+        }
+    },
+    {
+        "model": "producer.order",
+        "pk": 9,
+        "fields": {
+            "task_id": 9,
+            "name": "Order 9",
+            "description": "Description for Order 9",
+            "employee": 3
+        }
+    }
+]
